@@ -1,0 +1,72 @@
+p.poems {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 10vh;
+    position: relative;
+    top: 12vh;
+}
+
+p.name {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    font-size: 10vh;
+    position: relative;
+    color: white;
+    top: 11vh;
+    letter-spacing: 10px;
+}
+
+
+p.description {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    font-size: 4vh;
+    position: relative;
+    color: white;
+    top: 2vh;
+    opacity: 0.6;
+}
+
+.social {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline;
+}
+
+.fab {
+    color: white;
+    opacity: 0.5;
+    font-size: xxx-large;
+    text-align: center;
+}
+
+.icons {
+    position: relative;
+    text-align: center;
+    top: 8vh;
+}
+
+.fab:hover {
+    opacity: 1;
+}
+
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    p.name {
+        font-size: 7vh;
+    }
+    p.description{
+        font-size:3vh;
+        top: 4vh;
+    }
+}
