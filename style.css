@@ -49,8 +49,8 @@ nav{
 }
 
 body {
-    /* background-image: url('background.jpg'); */
-    background-color: aquamarine;
+    background-image: url('background.jpg');
+/*     background-color: aquamarine; */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
