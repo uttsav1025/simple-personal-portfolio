@@ -1,38 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uttsav</title>
+    <title>Uttsav Pokhrel - Portfolio</title>
     <link rel="stylesheet" href="./style.css" type="text/css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/23ec1d83f3.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Main content container -->
     <div class="main">
-        <p class="name">Uttsav Pokhrel</p>
-        <p class="description">I write poems and code as a hobby.</p>
+        <!-- Greeting with typing animation -->
+        <p class="greeting">Hello, I'm</p>
+        <h1 class="name">Uttsav Pokhrel</h1>
+        <p class="description">
+            <span class="typing-text">I write poems and code as a hobby.</span>
+            <span class="cursor">|</span>
+        </p>
+        
+        <!-- Skills tags -->
+        <div class="skills-container">
+            <span class="skill-tag">Poetry</span>
+            <span class="skill-tag">Coding</span>
+            <span class="skill-tag">Creative Writing</span>
+            <span class="skill-tag">Web Development</span>
+        </div>
+
+        <!-- Social links with enhanced styling -->
         <nav>
             <ul class="ulsocial">
-                <li class="social"><a href="http://instagram.com/uttsavasttu" target="_blank"><i
-                            class="fab fa-instagram"></i></a></li>
-                <li class="social"><a href="https://codepen.io/vas2" target="_blank"><i class="fab fa-codepen"></i></a>
+                <li class="social" data-tooltip="Instagram">
+                    <a href="http://instagram.com/uttsavasttu" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </li>
-                <li class="social"><a href="https://github.com/uttsav1025" target="_blank"><i
-                            class="fab fa-github"></i></a></li>
-                <li class="social"><a href="https://www.youtube.com/channel/UCpUUE_7vbTv3z9HXazsu-gA" target="_blank"><i
-                            class="fab fa-youtube"></i></a></li>
+                <li class="social" data-tooltip="CodePen">
+                    <a href="https://codepen.io/vas2" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-codepen"></i>
+                    </a>
+                </li>
+                <li class="social" data-tooltip="GitHub">
+                    <a href="https://github.com/uttsav1025" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li class="social" data-tooltip="YouTube">
+                    <a href="https://www.youtube.com/channel/UCpUUE_7vbTv3z9HXazsu-gA" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
             </ul>
         </nav>
+
+        <!-- Call to action button -->
+        <div class="cta-container">
+            <a href="#contact" class="cta-button">
+                <span>Get in Touch</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll to explore</p>
+        </div>
     </div>
 
-</body>
+    <!-- About section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a creative individual passionate about expressing ideas through both poetry and code. The intersection of art and technology fascinates me, and I love exploring how words and algorithms can create beautiful experiences.</p>
+                    <p>When I'm not writing or coding, you can find me exploring new technologies, reading, or sharing my journey on social media.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Projects</h3>
+                        <p>Multiple creative coding projects</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-feather-alt"></i>
+                        <h3>Writing</h3>
+                        <p>Poetry & creative content</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Passion</h3>
+                        <p>Art meets technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">Feel free to reach out for collaborations or just a friendly chat</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email Me</span>
+                </a>
+                <a href="http://instagram.com/uttsavasttu" target="_blank" class="contact-card">
+                    <i class="fab fa-instagram"></i>
+                    <span>DM on Instagram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Uttsav Pokhrel. Crafted with <i class="fas fa-heart"></i> and code.</p>
+    </footer>
+
+    <!-- JavaScript for interactions -->
+    <script src="./script.js"></script>
+</body>
 </html>
