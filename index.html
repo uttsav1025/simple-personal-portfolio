@@ -2,124 +2,451 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uttsav Pokhrel - Portfolio</title>
-    <link rel="stylesheet" href="./style.css" type="text/css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/23ec1d83f3.js" crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #ffa726;
+            --text-light: rgba(255, 255, 255, 0.9);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Dark overlay for readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .greeting {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(255, 167, 38, 0.5);
+        }
+
+        .name {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 700;
+            margin: 1rem 0;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8),
+                         0 0 40px rgba(255, 167, 38, 0.3);
+            letter-spacing: 0.05em;
+        }
+
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-light);
+            margin: 1.5rem 0 2.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            font-weight: 300;
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0 3rem;
+        }
+
+        .skill-pill {
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: var(--accent);
+            backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            background: rgba(255, 167, 38, 0.15);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 167, 38, 0.3);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 167, 38, 0.15);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 167, 38, 0.4);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* ===== SECTIONS ===== */
+        section:not(.hero) {
+            min-height: 100vh;
+            padding: 5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto 3rem;
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(255, 167, 38, 0.5);
+        }
+
+        /* About section */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Feature cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 167, 38, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 167, 38, 0.3);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 167, 38, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* Contact cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 167, 38, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(255, 167, 38, 0.3);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 167, 38, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-icon i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        footer i.fa-heart {
+            color: #ff6b6b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .social-links {
+                gap: 1.5rem;
+            }
+
+            .social-link {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .features-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Animated background particles -->
-    <div class="particles" id="particles"></div>
-    
-    <!-- Main content container -->
-    <div class="main">
-        <!-- Greeting with typing animation -->
+    <!-- Hero Section -->
+    <section class="hero">
         <p class="greeting">Hello, I'm</p>
         <h1 class="name">Uttsav Pokhrel</h1>
-        <p class="description">
-            <span class="typing-text">I write poems and code as a hobby.</span>
-            <span class="cursor">|</span>
-        </p>
+        <p class="tagline">I write poems and code as a hobby.</p>
         
-        <!-- Skills tags -->
-        <div class="skills-container">
-            <span class="skill-tag">Poetry</span>
-            <span class="skill-tag">Coding</span>
-            <span class="skill-tag">Creative Writing</span>
-            <span class="skill-tag">Web Development</span>
+        <div class="skills">
+            <span class="skill-pill">Poetry</span>
+            <span class="skill-pill">Coding</span>
+            <span class="skill-pill">Creative Writing</span>
+            <span class="skill-pill">Web Development</span>
         </div>
 
-        <!-- Social links with enhanced styling -->
-        <nav>
-            <ul class="ulsocial">
-                <li class="social" data-tooltip="Instagram">
-                    <a href="http://instagram.com/uttsavasttu" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
-                <li class="social" data-tooltip="CodePen">
-                    <a href="https://codepen.io/vas2" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-codepen"></i>
-                    </a>
-                </li>
-                <li class="social" data-tooltip="GitHub">
-                    <a href="https://github.com/uttsav1025" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-                <li class="social" data-tooltip="YouTube">
-                    <a href="https://www.youtube.com/channel/UCpUUE_7vbTv3z9HXazsu-gA" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Call to action button -->
-        <div class="cta-container">
-            <a href="#contact" class="cta-button">
-                <span>Get in Touch</span>
-                <i class="fas fa-arrow-right"></i>
+        <div class="social-links">
+            <a href="http://instagram.com/uttsavasttu" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://codepen.io/vas2" target="_blank" class="social-link">
+                <i class="fab fa-codepen"></i>
+            </a>
+            <a href="https://github.com/uttsav1025" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCpUUE_7vbTv3z9HXazsu-gA" target="_blank" class="social-link">
+                <i class="fab fa-youtube"></i>
             </a>
         </div>
 
-        <!-- Scroll indicator -->
         <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <p>Scroll to explore</p>
+            <i class="fas fa-chevron-down"></i>
         </div>
-    </div>
+    </section>
 
-    <!-- About section -->
-    <section class="about-section" id="about">
+    <!-- About Section -->
+    <section id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a creative individual passionate about expressing ideas through both poetry and code. The intersection of art and technology fascinates me, and I love exploring how words and algorithms can create beautiful experiences.</p>
-                    <p>When I'm not writing or coding, you can find me exploring new technologies, reading, or sharing my journey on social media.</p>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-card">
+            <div class="title-underline"></div>
+            
+            <div class="about-text">
+                <p>I'm a creative individual passionate about expressing ideas through both poetry and code. The intersection of art and technology fascinates me, and I love exploring how words and algorithms can create beautiful experiences.</p>
+                <p>When I'm not writing or coding, you can find me exploring new technologies, reading, or sharing my journey on social media.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-code"></i>
-                        <h3>Projects</h3>
-                        <p>Multiple creative coding projects</p>
                     </div>
-                    <div class="stat-card">
+                    <h3>Projects</h3>
+                    <p>Multiple creative coding projects</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-feather-alt"></i>
-                        <h3>Writing</h3>
-                        <p>Poetry & creative content</p>
                     </div>
-                    <div class="stat-card">
+                    <h3>Writing</h3>
+                    <p>Poetry & creative content</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-heart"></i>
-                        <h3>Passion</h3>
-                        <p>Art meets technology</p>
                     </div>
+                    <h3>Passion</h3>
+                    <p>Art meets technology</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact section -->
-    <section class="contact-section" id="contact">
+    <!-- Contact Section -->
+    <section id="contact">
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
+            <div class="title-underline"></div>
             <p class="section-subtitle">Feel free to reach out for collaborations or just a friendly chat</p>
-            <div class="contact-links">
+
+            <div class="contact-grid">
                 <a href="mailto:your.email@example.com" class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email Me</span>
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>your.email@example.com</p>
                 </a>
                 <a href="http://instagram.com/uttsavasttu" target="_blank" class="contact-card">
-                    <i class="fab fa-instagram"></i>
-                    <span>DM on Instagram</span>
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>@uttsavasttu</p>
                 </a>
             </div>
         </div>
@@ -130,7 +457,26 @@
         <p>&copy; 2024 Uttsav Pokhrel. Crafted with <i class="fas fa-heart"></i> and code.</p>
     </footer>
 
-    <!-- JavaScript for interactions -->
-    <script src="./script.js"></script>
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hide scroll indicator on scroll
+        window.addEventListener('scroll', () => {
+            const indicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                indicator.style.opacity = '0';
+            } else {
+                indicator.style.opacity = '1';
+            }
+        });
+    </script>
 </body>
 </html>
